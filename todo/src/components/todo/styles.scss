@@ -1,0 +1,30 @@
+.todo-card {
+  max-width: 450px;
+  padding: 0.1rem 1rem 0.5rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+    align-items: center;
+
+    .todo-name {
+      font-size: 1.2rem;
+      color: #0d47a1;
+
+      &.strike {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .todo-timestamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #bdbdbd;
+  }
+}
