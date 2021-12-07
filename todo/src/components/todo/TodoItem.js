@@ -6,26 +6,20 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 class TodoItem extends React.Component {
   render() {
-    const {
-      id,
-      name,
-      addedTimestamp,
-      completedTimestamp,
-      onComplete,
-      onDelete,
-    } = this.props;
+    const { task, onComplete, onDelete } = this.props;
+    const { id, name, addedDateTime, completedDateTime } = task;
 
     return (
       <div className="todo-card">
         <div className="todo-item">
-          <div className={"todo-name " + (completedTimestamp ? "strike" : "")}>
+          <div className={"todo-name " + (completedDateTime ? "strike" : "")}>
             {id + " : " + name}
           </div>
           <div className="todo-icons">
             <IconButton
               size="large"
               onClick={() => onComplete(id)}
-              disabled={!!completedTimestamp}
+              disabled={!!completedDateTime}
             >
               <CheckCircleIcon />
             </IconButton>
@@ -35,8 +29,8 @@ class TodoItem extends React.Component {
           </div>
         </div>
         <div className="todo-timestamps">
-          {addedTimestamp && <div>Added on: {addedTimestamp}</div>}
-          {completedTimestamp && <div>Completed on: {completedTimestamp}</div>}
+          {addedDateTime && <div>Added on: {addedDateTime}</div>}
+          {completedDateTime && <div>Completed on: {completedDateTime}</div>}
         </div>
       </div>
     );

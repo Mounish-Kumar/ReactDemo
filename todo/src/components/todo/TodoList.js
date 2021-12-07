@@ -3,6 +3,8 @@ import TodoItem from "./TodoItem";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { getCurrentTime } from "../../utils/utils";
+import ErrorBoundary from "../errorboundary/ErrorBoundary";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -15,30 +17,52 @@ class TodoList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    // http call to get taskList
+    const response = {
+      status: "OK",
+      list: [
+        { id: 1, name: "Eat", addedDateTime: "26/12/1991 12:00:00" },
+        {
+          id: 2,
+          name: "Sleep",
+          addedDateTime: "01/01/2020 12:00:00",
+          completedDateTime: "02/01/2021 12:00:00",
+        },
+        { id: 3, name: "Repeat", addedDateTime: "26/12/1991 12:00:00" },
+        // null,
+      ],
+    };
+    this.setState({
+      taskList: response.list,
+      previousId: response.list.length,
+    });
+  }
+
   render() {
+    const { taskToAdd, taskList } = this.state;
+
     return (
       <div style={{ padding: "1rem" }}>
         <TextField
           label="Enter a task"
           variant="outlined"
-          value={this.state.taskToAdd}
+          value={taskToAdd}
           onChange={this.handleChange}
         />
         <IconButton size="large" onClick={this.addTask}>
           <AddCircleIcon />
         </IconButton>
         <div>
-          {this.state.taskList &&
-            this.state.taskList.map((task) => (
-              <TodoItem
-                key={task.id}
-                id={task.id}
-                name={task.name}
-                addedTimestamp={task.addedDateTime}
-                completedTimestamp={task.completedDateTime}
-                onComplete={this.completeTask}
-                onDelete={this.deleteTask}
-              />
+          {taskList &&
+            taskList.map((task) => (
+              <ErrorBoundary>
+                <TodoItem
+                  task={task}
+                  onComplete={this.completeTask}
+                  onDelete={this.deleteTask}
+                />
+              </ErrorBoundary>
             ))}
         </div>
       </div>
@@ -52,16 +76,16 @@ class TodoList extends React.Component {
   addTask = () => {
     const { previousId, taskToAdd, taskList } = this.state;
     const newId = previousId + 1;
-    const item = {
+    const newTask = {
       id: newId,
       name: taskToAdd,
-      addedDateTime: this.getCurrentTime(),
+      addedDateTime: getCurrentTime(),
     };
 
     this.setState({
       previousId: newId,
       taskToAdd: "",
-      taskList: [...taskList, item],
+      taskList: [...taskList, newTask],
     });
   };
 
@@ -69,9 +93,7 @@ class TodoList extends React.Component {
     const { taskList } = this.state;
     const updatedList = taskList.map((task) => {
       const completedDateTime =
-        task.id === completedId
-          ? this.getCurrentTime()
-          : task.completedDateTime;
+        task.id === completedId ? getCurrentTime() : task.completedDateTime;
       return { ...task, completedDateTime };
     });
 
@@ -87,23 +109,6 @@ class TodoList extends React.Component {
     this.setState({
       taskList: updatedList,
     });
-  };
-
-  getCurrentTime = () => {
-    var d = new Date();
-    return (
-      d.getUTCFullYear() +
-      "/" +
-      (d.getUTCMonth() + 1) +
-      "/" +
-      d.getUTCDate() +
-      " " +
-      d.getUTCHours() +
-      ":" +
-      d.getUTCMinutes() +
-      ":" +
-      d.getUTCSeconds()
-    );
   };
 }
 
