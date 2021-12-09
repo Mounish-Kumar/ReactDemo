@@ -22,9 +22,9 @@
 
 ### Material UI
 
-[Components](https://mui.com/components/)
+[Material UI Components](https://mui.com/components/)
 
-[Icons](https://mui.com/components/material-icons/)
+[Material UI Icons](https://mui.com/components/material-icons/)
 
 ### Axios
 
