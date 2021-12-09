@@ -4,24 +4,21 @@
 
 [My Session Examples](https://github.com/Mounish-Kumar/JS6Demo)
 
-[JavaScript ES6](https://www.youtube.com/watch?v=NCwa_xi0Uuc)
+[JavaScript ES6 Video Tutorial](https://www.youtube.com/watch?v=NCwa_xi0Uuc)
 
-[OOPS in JavaScript](https://www.youtube.com/watch?v=PFmuCDHHpwk)
-
+[OOPS in JavaScript Video Tutorial](https://www.youtube.com/watch?v=PFmuCDHHpwk)
 
 ### SASS
 
-[SASS Tutorial](https://www.youtube.com/watch?v=roywYSEPSvc)
+[SASS Video Tutorial](https://www.youtube.com/watch?v=roywYSEPSvc)
 
-[SASS Extend Tutorial](https://www.youtube.com/watch?v=is87ILGUQWU)
-
+[SASS Extend Video Tutorial](https://www.youtube.com/watch?v=is87ILGUQWU)
 
 ### React
 
-[My React Docs](https://github.com/Mounish-Kumar/InterviewPreparation/blob/master/React%20%26%20Redux.txt)
+[My React Documentation](https://github.com/Mounish-Kumar/InterviewPreparation/blob/master/React%20%26%20Redux.txt)
 
-[React Hooks](https://youtube.com/playlist?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h)
-
+[React Hooks Video Tutorial](https://youtube.com/playlist?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h)
 
 ### Material UI
 
@@ -29,10 +26,15 @@
 
 [Icons](https://mui.com/components/material-icons/)
 
-
 ### Axios
 
-[Axios API](https://axios-http.com/docs/api_intro)
+[Axios Documentation](https://axios-http.com/docs/api_intro)
+
+### React Router
+
+[React Router Documentation](https://reactrouter.com/docs/en/v6/getting-started/tutorial)
+
+[React Router Video Tutorial](https://www.youtube.com/watch?v=0cSVuySEB0A)
 
 
 
@@ -72,9 +74,9 @@ Install Axios (For API calls)
 
 	npm i axios --save
 
-Install Router
+Install React Router
 
-	npm i react-router-dom --save
+	npm i react-router-dom@6 history@5 --save
 
 
 
