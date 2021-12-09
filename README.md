@@ -38,6 +38,8 @@
 
 # Todo Project Initial Setup
 
+[Download Microsoft Visual Studio Code](https://code.visualstudio.com/download) and install
+
 Install Visual Studio Code extensions
 
 • Simple React Snippets
@@ -48,11 +50,11 @@ Install Visual Studio Code extensions
 
 Check if Node.js is installed
 
-	> npm -v
+	npm -v
 
 Install "create-react-app" library to create React application
 
-	> npm i create-react-app -g
+npm i create-react-app -g
 
 Create application
 
