@@ -1,3 +1,72 @@
+# References
+
+### JavaScript
+
+[My Session Examples](https://github.com/Mounish-Kumar/JS6Demo)
+
+[JavaScript ES6](https://www.youtube.com/watch?v=NCwa_xi0Uuc)
+
+[OOPS in JavaScript](https://www.youtube.com/watch?v=PFmuCDHHpwk)
+
+
+### SASS
+
+[SASS Tutorial](https://www.youtube.com/watch?v=roywYSEPSvc)
+
+[SASS Extend Tutorial](https://www.youtube.com/watch?v=is87ILGUQWU)
+
+
+### React
+
+[My React Docs](https://github.com/Mounish-Kumar/InterviewPreparation/blob/master/React%20%26%20Redux.txt)
+
+[React Hooks](https://youtube.com/playlist?list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h)
+
+
+### Material UI
+
+[Components](https://mui.com/components/)
+
+[Icons](https://mui.com/components/material-icons/)
+
+
+### Axios
+
+[Axios API](https://axios-http.com/docs/api_intro)
+
+
+
+# Todo Project Initial Setup
+
+Install Visual Studio Code extensions
+• Simple React Snippets
+• Prettier - Code Formatter
+
+[Download Node.js](https://nodejs.org/en/download/) and install
+
+Check if Node.js is installed
+	> npm -v
+
+Install "create-react-app" library to create React application
+	> npm i create-react-app -g
+
+Create application
+	> npx create-react-app todo
+
+Install SASS (CSS Preprocessor)
+	> npm i node-sass --save
+
+Install Material UI (CSS Framework)
+	> npm install @mui/material @emotion/react @emotion/styled @mui/icons-material --save
+
+Install Axios (For API calls)
+	> npm i axios --save
+
+Install Router
+	> npm i react-router-dom --save
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
