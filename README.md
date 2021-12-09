@@ -39,30 +39,39 @@
 # Todo Project Initial Setup
 
 Install Visual Studio Code extensions
+
 • Simple React Snippets
+
 • Prettier - Code Formatter
 
 [Download Node.js](https://nodejs.org/en/download/) and install
 
 Check if Node.js is installed
+
 	> npm -v
 
 Install "create-react-app" library to create React application
+
 	> npm i create-react-app -g
 
 Create application
+
 	> npx create-react-app todo
 
 Install SASS (CSS Preprocessor)
+
 	> npm i node-sass --save
 
 Install Material UI (CSS Framework)
+
 	> npm install @mui/material @emotion/react @emotion/styled @mui/icons-material --save
 
 Install Axios (For API calls)
+
 	> npm i axios --save
 
 Install Router
+
 	> npm i react-router-dom --save
 
 
