@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import TodoItem from "./TodoItemFn";
+import TodoItem from "./todo-item/TodoItemFn";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { getCurrentTime } from "../../utils/utils";
-import ErrorBoundary from "../errorboundary/ErrorBoundary";
+import ErrorBoundary from "../error-boundary/ErrorBoundary";
+import axios from "axios";
 
 export default function TodoList(props) {
   const [previousId, setPreviousId] = useState(0);
@@ -12,24 +13,24 @@ export default function TodoList(props) {
   const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
-    // http call to get taskList
-    const response = {
-      status: "OK",
-      list: [
-        { id: 1, name: "Eat", addedDateTime: "26/12/1991 12:00:00" },
-        {
-          id: 2,
-          name: "Sleep",
-          addedDateTime: "01/01/2020 12:00:00",
-          completedDateTime: "02/01/2021 12:00:00",
-        },
-        { id: 3, name: "Repeat", addedDateTime: "26/12/1991 12:00:00" },
-        // null,
-      ],
-    };
+    props.showLoader();
 
-    setTaskList(response.list);
-    setPreviousId(response.list.length);
+    axios
+      .get(`http://localhost:8080/api/todos`)
+      .then((res) => {
+        if (res && res.data && res.data.list) {
+          setTaskList(res.data.list);
+          setPreviousId(res.data.list.length);
+        }
+      })
+      .catch((error) => {
+        if (error && error.response && error.response.data) {
+          console.log(error.response.data);
+        }
+      })
+      .then(() => {
+        props.hideLoader();
+      });
   }, []);
 
   const addTask = () => {
@@ -75,9 +76,8 @@ export default function TodoList(props) {
       <div>
         {taskList &&
           taskList.map((task) => (
-            <ErrorBoundary>
+            <ErrorBoundary key={task.id}>
               <TodoItem
-                key={task.id}
                 task={task}
                 onComplete={completeTask}
                 onDelete={deleteTask}

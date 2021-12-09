@@ -1,10 +1,11 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import TodoItem from "./todo-item/TodoItem";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { getCurrentTime } from "../../utils/utils";
-import ErrorBoundary from "../errorboundary/ErrorBoundary";
+import ErrorBoundary from "../error-boundary/ErrorBoundary";
+import axios from "axios";
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -18,25 +19,26 @@ class TodoList extends React.Component {
   }
 
   componentDidMount() {
-    // http call to get taskList
-    const response = {
-      status: "OK",
-      list: [
-        { id: 1, name: "Eat", addedDateTime: "26/12/1991 12:00:00" },
-        {
-          id: 2,
-          name: "Sleep",
-          addedDateTime: "01/01/2020 12:00:00",
-          completedDateTime: "02/01/2021 12:00:00",
-        },
-        { id: 3, name: "Repeat", addedDateTime: "26/12/1991 12:00:00" },
-        // null,
-      ],
-    };
-    this.setState({
-      taskList: response.list,
-      previousId: response.list.length,
-    });
+    this.props.showLoader();
+
+    axios
+      .get(`http://localhost:8080/api/todos`)
+      .then((res) => {
+        if (res && res.data && res.data.list) {
+          this.setState({
+            taskList: res.data.list,
+            previousId: res.data.list.length,
+          });
+        }
+      })
+      .catch((error) => {
+        if (error && error.response && error.response.data) {
+          console.log(error.response.data);
+        }
+      })
+      .then(() => {
+        this.props.hideLoader();
+      });
   }
 
   render() {
@@ -56,7 +58,7 @@ class TodoList extends React.Component {
         <div>
           {taskList &&
             taskList.map((task) => (
-              <ErrorBoundary>
+              <ErrorBoundary key={task.id}>
                 <TodoItem
                   task={task}
                   onComplete={this.completeTask}
