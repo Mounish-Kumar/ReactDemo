@@ -68,7 +68,7 @@ Install SASS (CSS Preprocessor)
 
 Install Material UI (CSS Framework)
 
-	npm install @mui/material @emotion/react @emotion/styled @mui/icons-material --save
+	npm i @mui/material @emotion/react @emotion/styled @mui/icons-material --save
 
 Install Axios (For API calls)
 
