@@ -29,7 +29,9 @@ app.get(`${baseUrl}/todos`, function (req, res) {
   res.set("Content-Type", contentType);
   fs.readFile(`${jsonDirectory}/todosResponse.json`, encoding, (err, data) => {
     // res.status(500).send({ description: "Some error occured in the server" });
-    res.end(data);
+	setTimeout(() => {
+		res.end(data);
+	}, 3000);
   });
 });
 

@@ -6,14 +6,17 @@ class Header extends React.Component {
   render() {
     return (
       <div className="menu">
-        <NavLink to="/dashboard" className="menu-item" activeClassName="active">
+        <NavLink to="/dashboard" className="menu-item">
           Dashboard
         </NavLink>
-        <NavLink to="/todo" className="menu-item" activeClassName="active">
+        <NavLink to="/todo" className="menu-item">
           Todo
         </NavLink>
-        <NavLink to="/employee" className="menu-item" activeClassName="active">
-          Employees
+        <NavLink to="/counter" className="menu-item">
+          Counter
+        </NavLink>
+        <NavLink to="/employee" className="menu-item">
+          Employee
         </NavLink>
       </div>
     );

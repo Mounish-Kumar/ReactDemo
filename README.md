@@ -36,6 +36,12 @@
 
 [React Router Video Tutorial](https://www.youtube.com/watch?v=0cSVuySEB0A)
 
+### Redux Toolkit
+
+[Redux Toolkit Documentation](https://redux-toolkit.js.org/tutorials/quick-start)
+
+[Redux for Class Component](https://stackoverflow.com/questions/66277647/how-to-use-redux-toolkit-createslice-with-react-class-components)
+
 
 
 # Todo Project Initial Setup
@@ -77,6 +83,22 @@ Install Axios (For API calls)
 Install React Router
 
 	npm i react-router-dom@6 history@5 --save
+
+Install PropTypes
+
+	npm i prop-types --save
+
+Install PrismJS (Code Highlighter)
+
+	npm i prismjs --save
+
+Install library to parse JSX to string
+
+	npm i jsx-to-string --save
+
+Install Redux Toolkit
+
+	npm i @reduxjs/toolkit react-redux --save
 
 
 
