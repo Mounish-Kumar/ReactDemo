@@ -1,27 +1,42 @@
 import React from "react";
+import { connect } from "react-redux";
+import {
+  increment,
+  decrement,
+  incrementByValue,
+  decrementByValue,
+} from "../../store/counterSlice";
 
 class Counter extends React.Component {
   state = {
     count: 0,
   };
 
-  incrementCount = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  decrementCount = () => {
-    this.setState({ count: this.state.count - 1 });
-  };
-
   render() {
+    const { count, increment, decrement, incrementByValue, decrementByValue } =
+      this.props;
+
     return (
       <div>
-        <button onClick={this.decrementCount}>-</button>
-        {this.state.count}
-        <button onClick={this.incrementCount}>+</button>
+        <button onClick={() => decrementByValue(5)}>-5</button>
+        <button onClick={() => decrement()}>-</button>
+        {count}
+        <button onClick={() => increment()}>+</button>
+        <button onClick={() => incrementByValue(5)}>+5</button>
       </div>
     );
   }
 }
 
-export default Counter;
+const mapStoreToProps = (store) => ({
+  count: store.counter.count,
+});
+
+const mapDispatchToProps = {
+  increment,
+  decrement,
+  incrementByValue,
+  decrementByValue,
+};
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Counter);
