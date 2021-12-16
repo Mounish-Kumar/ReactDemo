@@ -42,6 +42,12 @@
 
 [Redux for Class Component](https://stackoverflow.com/questions/66277647/how-to-use-redux-toolkit-createslice-with-react-class-components)
 
+### Form Validation
+
+[React Hook Form Documentation](https://react-hook-form.com/get-started)
+
+[React Hook Form Video Tutorial](https://www.youtube.com/watch?v=bU_eq8qyjic)
+
 
 
 # Todo Project Initial Setup
@@ -99,6 +105,10 @@ Install library to parse JSX to string
 Install Redux Toolkit
 
 	npm i @reduxjs/toolkit react-redux --save
+
+Install libraries for form validation
+
+	npm i react-hook-form @hookform/resolvers yup --save
 
 
 
