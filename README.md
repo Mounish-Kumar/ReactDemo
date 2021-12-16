@@ -44,9 +44,9 @@
 
 ### Form Validation
 
-[React Hook Form Documentation](https://react-hook-form.com/get-started)
+[React Hook Form Documentation](https://react-hook-form.com/get-started#SchemaValidation)
 
-[React Hook Form Video Tutorial](https://www.youtube.com/watch?v=bU_eq8qyjic)
+[React Hook Form Video Tutorial](https://www.youtube.com/watch?v=DN8v7_RbVlc&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=3)
 
 
 
